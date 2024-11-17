@@ -1,6 +1,15 @@
-@for(todo of todoItems(); track todo.id) {
-<p>{{ todo.title }}</p>
-}
+<h3>Todos List</h3>
+
+<ul class="todos">
+  @for(todo of todoItems(); track todo.id) { @if (todoItems().indexOf(todo) < 5)
+  {
+  <!-- <p>{{ todo.title }}</p> -->
+  <li class="todos__items">
+    <input id="todo-{{ todo.id }}" type="checkbox" [value]="todo.completed" />
+    <label for="todo-{{ todo.id }}">{{ todo.title }}</label>
+  </li>
+  } }
+</ul>
 
 <!-- <p>{{ todoItems()[0].title }}</p>
 <p>{{ todoItems()[1].title }}</p>
